@@ -11,8 +11,8 @@ let entities = {
     ]
 };
 const evt = setInterval(() => {
-    let ent = new Entity(new Vector2(16, 64), new Vector2(16, 16));
-    ent.accelerate(new Vector2(30000, 0));
+    let ent = new Entity(new Vector2(screenSize.x / 2, 256), new Vector2(16, 16));
+    ent.accelerate(new Vector2(20000, -10000));
     entities.list.push(ent);
 
     if (entities.list.length > 1000)
@@ -38,9 +38,9 @@ function render(time) {
     entities.list.forEach((ent) => {
         context.beginPath();
 
-        (ent.shape.equals(EnumShapeCircle)) ? 
-            context.ellipse(ent.position.x, ent.position.y, ent.size.x, ent.size.x, 0, 0, Math.PI * 2) :
-            context.rect(ent.position.x - ent.size.x / 2, ent.position.y - ent.size.y / 2, ent.size.x, ent.size.y);
+        //(ent.shape.equals(EnumShapeCircle)) ? 
+            context.ellipse(ent.position.x, ent.position.y, ent.size.x, ent.size.x, 0, 0, Math.PI * 2) //:
+            //context.rect(ent.position.x - ent.size.x / 2, ent.position.y - ent.size.y / 2, ent.size.x, ent.size.y);
 
         context.fill();
         context.stroke();
